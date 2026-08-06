@@ -20,6 +20,10 @@ import caseNoCode from '../assets/case-nocode.png';
 import casePolitical from '../assets/case-political.png';
 import flagCa from '../assets/flags/ca.svg';
 import flagUs from '../assets/flags/us.svg';
+import iconBehance from '../assets/social/behance.svg';
+import iconDribbble from '../assets/social/dribbble.svg';
+import iconLinkedin from '../assets/social/linkedin.svg';
+import iconChai from '../assets/social/chai.svg';
 
 const FLAGS = {
   ca: { src: flagCa, label: 'Canada' },
@@ -405,7 +409,7 @@ function CaseStudies() {
       <div style={{
         display: 'flex',
         flexDirection: 'column',
-        gap: 'clamp(56px, 6vw, 64px)',
+        gap: 64,
         marginTop: 'clamp(48px, 6vw, 64px)',
       }}>
         {caseStudies.map(c => (
@@ -428,66 +432,88 @@ function CaseStudies() {
 /* ────────────────────────────────────────────────────────────────────────────
    Footer
    ──────────────────────────────────────────────────────────────────────────── */
-const FOOTER_LINKS = [
-  { label: 'Read CV', href: 'https://talent.toptal.com/resume/designers/saad-malik1' },
-  { label: 'Behance', href: 'www.behance.net/meetsaadmalik' },
-  { label: 'Dribbble', href: 'https://dribbble.com/meet-saad-malik/' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/meetsaadmalik/' },
+const SOCIALS = [
+  { label: 'Behance', href: 'https://www.behance.net/meetsaadmalik', icon: iconBehance },
+  { label: 'Dribbble', href: 'https://dribbble.com/meet-saad-malik/', icon: iconDribbble },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/meetsaadmalik/', icon: iconLinkedin },
+];
+
+const POLICIES = [
+  { label: 'Copyright Policy', href: '#' },
+  { label: 'Privacy Policy', href: '#' },
 ];
 
 function Footer() {
   return (
-    <footer style={{ borderTop: '1px solid rgba(209, 209, 201, 0.5)' }}>
+    <footer className="site-footer">
       <div style={{
         ...SHELL,
         display: 'flex',
-        flexWrap: 'wrap',
-        alignItems: 'flex-end',
-        justifyContent: 'space-between',
-        gap: 32,
-        paddingBlock: 'clamp(40px, 5vw, 64px)',
+        flexDirection: 'column',
+        gap: 16,
+        paddingBlock: 'clamp(40px, 5vw, 48px)',
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          <span className="font-typewriter" style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            width: 40,
-            height: 40,
-            borderRadius: '50%',
-            border: '1px dashed rgba(31, 31, 31, 0.2)',
-            fontSize: 9,
-            lineHeight: '12px',
-            letterSpacing: '0.08em',
-            opacity: 0.7,
-          }}>
-            © 26
-          </span>
-          <span style={{
-            fontFamily: "'Cormorant Garamond', serif",
-            fontStyle: 'italic',
-            fontWeight: 500,
-            fontSize: 'clamp(28px, 3vw, 36px)',
-            lineHeight: 1,
-          }}>
-            Saad Malik
-          </span>
+        {/* Row 1 — monogram + name / social icon buttons (Figma 388:3977) */}
+        <div className="footer-row">
+          <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
+            <span className="font-typewriter footer-monogram">©26</span>
+            <span style={{
+              fontFamily: "'Cormorant Garamond', serif",
+              fontStyle: 'italic',
+              fontWeight: 500,
+              fontSize: 'clamp(28px, 3vw, 36px)',
+              lineHeight: 1,
+            }}>
+              Saad Malik
+            </span>
+          </div>
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            {SOCIALS.map(({ label, href, icon }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                className="footer-social"
+                aria-label={label}
+              >
+                <img src={icon} alt="" aria-hidden="true" width={40} height={40} />
+              </a>
+            ))}
+          </div>
         </div>
 
-        <nav style={{ display: 'flex', flexWrap: 'wrap', gap: 'clamp(20px, 3vw, 40px)' }}>
-          {FOOTER_LINKS.map(({ label, href }) => (
-            <a
-              key={label}
-              href={href}
-              className="footer-link"
-              {...(href === '#'
-                ? { onClick: e => e.preventDefault() }
-                : { target: '_blank', rel: 'noreferrer' })}
-            >
-              <MonoLabel style={{ fontSize: 12, letterSpacing: '0.1em' }}>{label}</MonoLabel>
-            </a>
-          ))}
-        </nav>
+        <span className="footer-divider" aria-hidden="true" />
+
+        {/* Row 2 — powered-by / policy links (Figma 388:3991) */}
+        <div className="footer-row">
+          <div style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
+            <span className="font-typewriter" style={{
+              fontSize: 13,
+              letterSpacing: '0.33px',
+              color: 'var(--cs-muted)',
+            }}>
+              Powered by chai
+            </span>
+            <img src={iconChai} alt="" aria-hidden="true" width={16} height={16} style={{ opacity: 0.6 }} />
+          </div>
+
+          <nav style={{ display: 'flex', flexWrap: 'wrap', gap: 32 }}>
+            {POLICIES.map(({ label, href }) => (
+              <a
+                key={label}
+                href={href}
+                className="footer-policy"
+                {...(href === '#'
+                  ? { onClick: e => e.preventDefault() }
+                  : { target: '_blank', rel: 'noreferrer' })}
+              >
+                {label}
+              </a>
+            ))}
+          </nav>
+        </div>
       </div>
     </footer>
   );

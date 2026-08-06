@@ -129,10 +129,17 @@ textarea {
   .case-row {
     grid-template-columns: minmax(0, 1fr);
   }
+  /* Stacked: give the trusted-by block a real width and centre it. Using width
+     (not max-width) with auto margins — a grid item with max-width + margin:auto
+     shrink-wraps to its content, which is what made the artifact tiny. The
+     .hero-grid-prefixed overrides beat the base .trusted-art / .trusted-head
+     rules that come later in the file. */
   .hero-grid > :last-child {
-    max-width: 402px;
+    width: min(480px, 100%);
     margin-inline: auto;
   }
+  .hero-grid .trusted-art { max-width: 100%; }
+  .hero-grid .trusted-head { width: min(420px, 100%); }
 }
 
 /* Case-study thumbnail — 6px white mat, 16px radius (Figma 8:295). */
@@ -315,6 +322,24 @@ textarea {
   opacity: 0.3;
 }
 
+/* Phones: the pill fills the hero column and stacks its two links with a
+   horizontal divider between them (Figma 387:3571 — 614px frame). */
+@media (max-width: 640px) {
+  .platform-pill {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .platform-link {
+    justify-content: center;
+  }
+  .platform-divider {
+    width: auto;
+    height: 1px;
+    margin: 0;
+  }
+}
+
 .view-designs {
   display: inline-flex;
   align-items: center;
@@ -339,6 +364,62 @@ textarea {
   transition: opacity 0.2s ease, color 0.2s ease;
 }
 .footer-link:hover {
+  opacity: 1;
+  color: var(--color-terracotta);
+}
+
+/* ─── HOME FOOTER (Figma 388:3976) ─────────────────────────────────────────── */
+.site-footer {
+  border-top: 1px solid rgba(209, 209, 201, 0.5);
+}
+.footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+/* "©26" in a dashed circle */
+.footer-monogram {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px dashed rgba(0, 0, 0, 0.44);
+  font-size: 12px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--color-ink);
+  opacity: 0.6;
+}
+/* Dark glyph icon buttons (Behance / Dribbble / LinkedIn) — 40×40, lift on hover. */
+.footer-social {
+  display: inline-flex;
+  transition: transform 0.2s ease;
+}
+.footer-social img { display: block; }
+.footer-social:hover { transform: translateY(-2px); }
+
+.footer-divider {
+  width: 100%;
+  height: 1px;
+  background: #D9CFBE;
+  opacity: 0.6;
+}
+.footer-policy {
+  font-family: 'Courier Prime', monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: underline;
+  opacity: 0.7;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+.footer-policy:hover {
   opacity: 1;
   color: var(--color-terracotta);
 }
@@ -2278,8 +2359,8 @@ textarea {
 }
 
 @media (max-width: 640px) {
-  .city-clock { min-width: 0; }
-  .city-clock-city { display: none; }
+  /* The 614px design shows only the avatar in the header — hide the clock on mobile. */
+  .city-clock,
   .header-rule { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
