@@ -884,12 +884,21 @@ function Hero() {
   return (
     <section className="cs-hero">
       <div style={{ ...HERO_SHELL, paddingTop: 'clamp(56px, 8vw, 120px)', paddingBottom: 40 }}>
-        <div className="cs-hero-brand">
-          <span className="cs-logomark">
-            <img src={gartnerLogomark} alt="" aria-hidden="true" width={40} height={40} />
-          </span>
-          <h1 className="cs-title">Gartner</h1>
-        </div>
+      <div className="cs-hero-brand">
+      <span
+          className="cs-logomark"
+          style={{ background: '#3B3431' }}
+        >
+          <img
+            src={gartnerLogomark}
+            alt=""
+            aria-hidden="true"
+            width={40}
+            height={40}
+          />
+        </span>
+        <h1 className="cs-title">Gartner</h1>
+      </div>
 
         <p className="cs-hero-intro">
           Gartner had world-class advisory expertise and 88,000 enterprise clients. But only 7%
