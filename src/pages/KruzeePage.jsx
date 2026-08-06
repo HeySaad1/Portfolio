@@ -812,9 +812,18 @@ function Hero() {
     <section className="cs-hero">
       <div style={{ ...HERO_SHELL, paddingTop: 'clamp(56px, 8vw, 120px)', paddingBottom: 40 }}>
         <div className="cs-hero-brand">
-          <span className="cs-logomark">
-            <img src={kruzeeLogomark} alt="" aria-hidden="true" width={40} height={40} />
-          </span>
+        <span
+          className="cs-logomark"
+          style={{ background: '#39A3D1' }}
+        >
+          <img
+            src={kruzeeLogomark}
+            alt=""
+            aria-hidden="true"
+            width={40}
+            height={40}
+          />
+        </span>
           <h1 className="cs-title">Kruzee</h1>
         </div>
 
