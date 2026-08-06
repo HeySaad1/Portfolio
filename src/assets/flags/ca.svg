@@ -1,0 +1,8 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="contents">
+<path id="middle" fill-rule="evenodd" clip-rule="evenodd" d="M6 0H18V18H6V0Z" fill="#F7FCFF"/>
+<path id="Shape" fill-rule="evenodd" clip-rule="evenodd" d="M11.9823 5.25L12 14.25H11.5504L11.8262 12.0228C9.80864 12.3858 8.88324 12.4757 9.05004 12.2926C9.21684 12.1095 9.34827 11.85 9.44435 11.5141L6.75 9.71648C7.03334 9.71293 7.29027 9.6426 7.52077 9.50551C7.75128 9.36842 7.63603 8.89335 7.17501 8.0803L8.53535 8.27821L9.05004 7.71887L10.0764 8.79304H10.5377L10.0764 6.33257L10.9034 6.79449L11.9823 5.25ZM11.9823 5.25L13.0966 6.79449L13.9236 6.33257L13.4623 8.79304H13.9236L14.95 7.71887L15.4647 8.27821L16.825 8.0803C16.364 8.89335 16.2487 9.36842 16.4792 9.50551C16.7097 9.6426 16.9667 9.71293 17.25 9.71648L14.5557 11.5141C14.6517 11.85 14.7832 12.1095 14.95 12.2926C15.1168 12.4757 14.1914 12.3858 12.1738 12.0228L12.4496 14.25H12L11.9823 5.25Z" fill="#E31D1C"/>
+<path id="right" fill-rule="evenodd" clip-rule="evenodd" d="M18 0H24V18H18V0Z" fill="#E31D1C"/>
+<path id="right_2" fill-rule="evenodd" clip-rule="evenodd" d="M0 0H6V18H0V0Z" fill="#E31D1C"/>
+</g>
+</svg>
