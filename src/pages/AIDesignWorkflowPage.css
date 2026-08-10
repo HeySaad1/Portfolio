@@ -1,0 +1,681 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ─────────────────────────────────────────────
+   AI DESIGN WORKFLOW PAGE
+───────────────────────────────────────────── */
+
+.aiw-page {
+    --aiw-paper: #F6F1E8;
+    --aiw-sheet: #FFFFFF;
+    --aiw-ink: #1A1815;
+    --aiw-ink-soft: #4E4841;
+    --aiw-ink-faint: #8C857A;
+    --aiw-rule: #E3DCCE;
+    --aiw-blue: #3864E1;
+    --aiw-teal: #0D5E5D;
+  
+    background: var(--aiw-paper);
+    color: var(--aiw-ink);
+  
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 19px;
+    line-height: 1.72;
+  
+    width: 100%;
+    min-height: 100vh;
+  
+    padding-bottom: 110px;
+  
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  
+  /* ─────────────────────────────────────────────
+     OUTER FRAME
+  ───────────────────────────────────────────── */
+  
+  .aiw-frame {
+    max-width: 1160px;
+    margin: 0 auto;
+  
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+  
+  
+  /* ─────────────────────────────────────────────
+     DOCUMENT / PAPER
+  ───────────────────────────────────────────── */
+  
+  .aiw-sheet {
+    background: var(--aiw-sheet);
+  
+    border: 1px solid var(--aiw-rule);
+    border-radius: 6px;
+  
+    max-width: 960px;
+  
+    margin: 76px auto 0;
+  
+    padding: 88px 96px 72px;
+  
+    box-shadow:
+      0 1px 2px rgba(26, 24, 21, 0.04);
+  }
+  
+  
+  /* ─────────────────────────────────────────────
+     DOCUMENT HEADER
+  ───────────────────────────────────────────── */
+  
+  .aiw-docline {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  
+    gap: 24px;
+  
+    margin: 0 0 44px;
+  }
+  
+  
+  .aiw-kicker,
+  .aiw-dateline {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+  
+    font-size: 11px;
+  
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  
+    margin: 0;
+  }
+  
+  
+  .aiw-kicker {
+    letter-spacing: 0.16em;
+  
+    color: var(--aiw-teal);
+  }
+  
+  
+  .aiw-dateline {
+    color: var(--aiw-ink-faint);
+  }
+  
+  
+  /* ─────────────────────────────────────────────
+     HERO TITLE
+  ───────────────────────────────────────────── */
+  
+  .aiw-sheet h1 {
+    font-weight: 400;
+  
+    font-size: clamp(38px, 4.6vw, 56px);
+  
+    line-height: 1.08;
+  
+    letter-spacing: -0.022em;
+  
+    margin: 0 0 40px;
+  
+    max-width: 11em;
+  
+    text-indent: -0.04em;
+  }
+  
+  
+  /* ─────────────────────────────────────────────
+     OPENING
+  ───────────────────────────────────────────── */
+  
+  .aiw-opening p {
+    margin: 0 0 22px;
+  
+    max-width: 33em;
+  }
+  
+  
+  .aiw-opening p:last-child {
+    margin-bottom: 0;
+  }
+  
+  
+  .aiw-opening .aiw-lead {
+    font-size: 23px;
+  
+    line-height: 1.5;
+  }
+  
+  
+  .aiw-opening .aiw-quiet {
+    color: var(--aiw-ink-soft);
+  }
+  
+  
+  /* ─────────────────────────────────────────────
+     DIVIDERS
+  ───────────────────────────────────────────── */
+  
+  .aiw-divider {
+    border: 0;
+  
+    border-top: 1px solid var(--aiw-rule);
+  
+    margin: 64px 0;
+  }
+  
+  
+  /* ─────────────────────────────────────────────
+     WORKFLOW STAGES
+  ───────────────────────────────────────────── */
+  
+  .aiw-stage {
+    display: grid;
+  
+    grid-template-columns:
+      136px minmax(0, 1fr);
+  
+    gap: 48px;
+  
+    margin-bottom: 60px;
+  }
+  
+  
+  .aiw-stage:last-of-type {
+    margin-bottom: 0;
+  }
+  
+  
+  /* ─────────────────────────────────────────────
+     LEFT NOTES
+  ───────────────────────────────────────────── */
+  
+  .aiw-note {
+    padding-top: 6px;
+  }
+  
+  
+  .aiw-note-number {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+  
+    font-size: 11px;
+  
+    letter-spacing: 0.16em;
+  
+    text-transform: uppercase;
+  
+    color: var(--aiw-ink-faint);
+  
+    margin: 0 0 18px;
+  }
+  
+  
+  .aiw-note-number b {
+    color: var(--aiw-blue);
+  
+    font-weight: 500;
+  }
+  
+  
+  /* ─────────────────────────────────────────────
+     WORKFLOW SPINE
+  ───────────────────────────────────────────── */
+  
+  .aiw-spine {
+    display: block;
+  
+    margin-bottom: 22px;
+  }
+  
+  
+  .aiw-spine path {
+    fill: none;
+  
+    stroke: var(--aiw-blue);
+  
+    stroke-width: 1;
+  
+    opacity: 0.3;
+  
+    stroke-dasharray: var(--len);
+  
+    stroke-dashoffset: var(--len);
+  
+    transition:
+      stroke-dashoffset 1s ease 0.1s;
+  }
+  
+  
+  .aiw-spine path.is-chosen {
+    opacity: 1;
+  
+    stroke-width: 1.5;
+  }
+  
+  
+  .aiw-spine circle {
+    fill: var(--aiw-blue);
+  
+    opacity: 0;
+  
+    transition:
+      opacity 0.4s ease 0.9s;
+  }
+  
+  
+  /* Trigger diagram animation */
+  
+  .aiw-reveal.is-in .aiw-spine path {
+    stroke-dashoffset: 0;
+  }
+  
+  
+  .aiw-reveal.is-in .aiw-spine circle {
+    opacity: 1;
+  }
+  
+  
+  /* ─────────────────────────────────────────────
+     TOOLS
+  ───────────────────────────────────────────── */
+  
+  .aiw-tools {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+  
+    font-size: 11px;
+  
+    line-height: 1.9;
+  
+    color: var(--aiw-ink-soft);
+  
+    margin: 0;
+  }
+  
+  
+  .aiw-tools > span {
+    display: block;
+  
+    font-size: 10px;
+  
+    letter-spacing: 0.16em;
+  
+    text-transform: uppercase;
+  
+    color: var(--aiw-ink-faint);
+  
+    margin-bottom: 4px;
+  }
+  
+  
+  .aiw-tools small {
+    display: block;
+  
+    margin-top: 6px;
+  
+    padding-left: 10px;
+  
+    border-left:
+      1px solid var(--aiw-rule);
+  
+    font-family: inherit;
+  
+    font-size: 10px;
+  
+    line-height: 1.6;
+  
+    color: var(--aiw-ink-faint);
+  }
+  
+  
+  /* ─────────────────────────────────────────────
+     STAGE CONTENT
+  ───────────────────────────────────────────── */
+  
+  .aiw-stage-content h2 {
+    font-weight: 400;
+  
+    font-size:
+      clamp(23px, 2.4vw, 28px);
+  
+    line-height: 1.24;
+  
+    letter-spacing: -0.012em;
+  
+    margin: 0 0 18px;
+  
+    max-width: 17em;
+  }
+  
+  
+  .aiw-stage-content p {
+    margin: 0 0 16px;
+  
+    max-width: 33em;
+  
+    color: var(--aiw-ink-soft);
+  }
+  
+  
+  .aiw-stage-content p:last-child {
+    margin-bottom: 0;
+  }
+  
+  
+  /* ─────────────────────────────────────────────
+     CLOSING
+  ───────────────────────────────────────────── */
+  
+  .aiw-closing p {
+    margin: 0 0 24px;
+  
+    max-width: 31em;
+  }
+  
+  
+  .aiw-closing-lines {
+    font-size:
+      clamp(26px, 3vw, 34px);
+  
+    line-height: 1.3;
+  
+    letter-spacing: -0.015em;
+  
+    max-width: 15em !important;
+  }
+  
+  
+  .aiw-closing-lines em {
+    font-style: italic;
+  
+    color: var(--aiw-teal);
+  }
+  
+  
+  .aiw-closing-note {
+    color: var(--aiw-ink-soft);
+  }
+  
+  
+  /* ─────────────────────────────────────────────
+     SIGNATURE
+  ───────────────────────────────────────────── */
+  
+  .aiw-sign {
+    margin-top: 72px;
+  
+    display: flex;
+  
+    align-items: flex-end;
+  
+    gap: 48px;
+  
+    flex-wrap: wrap;
+  }
+  
+  
+  .aiw-sign-block {
+    min-width: 230px;
+  }
+  
+  
+  .aiw-sign-svg {
+    display: block;
+  
+    width:
+      clamp(230px, 26vw, 320px);
+  
+    height: auto;
+  
+    margin: 0;
+  
+    overflow: visible;
+  }
+  
+  
+  .aiw-sign-svg path {
+    fill: none;
+  
+    stroke: var(--aiw-blue);
+  
+    stroke-width: 150;
+  
+    stroke-linecap: round;
+  
+    stroke-linejoin: round;
+  
+    stroke-dasharray: var(--len);
+  
+    stroke-dashoffset: var(--len);
+  
+    transition:
+      stroke-dashoffset
+      var(--dur, 1s)
+      cubic-bezier(.55, .05, .35, 1)
+      var(--delay, 0s);
+  }
+  
+  
+  /* Trigger signature drawing */
+  
+  .aiw-reveal.is-in .aiw-sign-svg path {
+    stroke-dashoffset: 0;
+  }
+  
+  
+  .aiw-sign-name {
+    font-family:
+      "JetBrains Mono",
+      ui-monospace,
+      monospace;
+  
+    font-size: 11px;
+  
+    letter-spacing: 0.16em;
+  
+    text-transform: uppercase;
+  
+    line-height: 1.2;
+  
+    margin: 16px 0 2px !important;
+  
+    color: var(--aiw-ink);
+  }
+  
+  
+  .aiw-sign-role {
+    font-family:
+      Inter,
+      -apple-system,
+      BlinkMacSystemFont,
+      sans-serif;
+  
+    font-size: 14px;
+  
+    line-height: 1.3;
+  
+    color: var(--aiw-ink-faint);
+  
+    margin: 0 !important;
+  }
+  
+  
+  /* ─────────────────────────────────────────────
+     SCROLL REVEAL
+  ───────────────────────────────────────────── */
+  
+  .aiw-reveal {
+    opacity: 0;
+  
+    transform:
+      translateY(12px);
+  
+    transition:
+      opacity 0.7s ease,
+      transform 0.7s ease;
+  }
+  
+  
+  .aiw-reveal.is-in {
+    opacity: 1;
+  
+    transform: none;
+  }
+  
+  
+  /* ─────────────────────────────────────────────
+     TABLET
+  ───────────────────────────────────────────── */
+  
+  @media (max-width: 900px) {
+  
+    .aiw-sheet {
+      padding:
+        64px 56px 56px;
+  
+      margin-top: 48px;
+    }
+  
+  
+    .aiw-stage {
+      grid-template-columns:
+        104px minmax(0, 1fr);
+  
+      gap: 32px;
+    }
+  
+  }
+  
+  
+  /* ─────────────────────────────────────────────
+     MOBILE
+  ───────────────────────────────────────────── */
+  
+  @media (max-width: 680px) {
+  
+    .aiw-page {
+      font-size: 18px;
+  
+      padding-bottom: 70px;
+    }
+  
+  
+    .aiw-frame {
+      padding-left: 20px;
+  
+      padding-right: 20px;
+    }
+  
+  
+    .aiw-sheet {
+      padding:
+        44px 26px 40px;
+  
+      margin-top: 28px;
+  
+      border-left: 0;
+  
+      border-right: 0;
+  
+      border-radius: 0;
+    }
+  
+  
+    .aiw-docline {
+      margin-bottom: 32px;
+  
+      gap: 16px;
+    }
+  
+  
+    .aiw-divider {
+      margin: 44px 0;
+    }
+  
+  
+    .aiw-stage {
+      grid-template-columns:
+        minmax(0, 1fr);
+  
+      gap: 20px;
+  
+      margin-bottom: 48px;
+    }
+  
+  
+    .aiw-note {
+      display: flex;
+  
+      align-items: center;
+  
+      gap: 20px;
+  
+      padding-top: 0;
+    }
+  
+  
+    .aiw-note-number,
+    .aiw-spine {
+      margin-bottom: 0;
+    }
+  
+  
+    .aiw-spine {
+      width: 64px;
+  
+      height: 40px;
+  
+      transform:
+        rotate(-90deg);
+    }
+  
+  
+    .aiw-sign {
+      margin-top: 52px;
+  
+      gap: 34px;
+    }
+  
+  }
+  
+  
+  /* ─────────────────────────────────────────────
+     REDUCED MOTION
+  ───────────────────────────────────────────── */
+  
+  @media (prefers-reduced-motion: reduce) {
+  
+    .aiw-reveal {
+      opacity: 1;
+  
+      transform: none;
+  
+      transition: none;
+    }
+  
+  
+    .aiw-spine path {
+      stroke-dasharray: none;
+  
+      stroke-dashoffset: 0;
+  
+      transition: none;
+    }
+  
+  
+    .aiw-spine circle {
+      opacity: 1;
+  
+      transition: none;
+    }
+  
+  
+    .aiw-sign-svg path {
+      stroke-dasharray: none;
+  
+      stroke-dashoffset: 0;
+  
+      transition: none;
+    }
+  
+  }

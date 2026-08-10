@@ -1355,7 +1355,7 @@ textarea {
 }
 
 /* Header CTA */
-.contact-cta {
+/* .contact-cta {
   transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 .contact-cta:hover {
@@ -1364,6 +1364,213 @@ textarea {
 }
 .contact-cta:active {
   transform: scale(0.97);
+} */
+
+/* ─────────────────────────────────────
+   AI x Design CTA
+───────────────────────────────────── */
+
+.ai-design-workflow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  height: 40px;
+  padding: 0 20px;
+
+  border: 1px solid var(--color-blue);
+  border-radius: 4px;
+
+  background: transparent;
+  color: var(--color-blue);
+
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transform-origin: 50% 50%;
+  will-change: transform;
+
+  transition:
+    background-color 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.ai-design-workflow:hover {
+  background: rgba(56, 100, 225, 0.08);
+}
+
+.ai-design-workflow:active {
+  background: rgba(56, 100, 225, 0.14);
+}
+
+.ai-design-workflow:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 3px;
+}
+
+
+/* Sparkle */
+
+.ai-spark {
+  position: relative;
+  display: inline-flex;
+
+  width: 16px;
+  height: 16px;
+
+  flex: none;
+}
+
+.ai-spark-main {
+  width: 16px;
+  height: 16px;
+
+  color: var(--color-blue);
+
+  transform-origin: 50% 50%;
+}
+
+.ai-spark-mini {
+  position: absolute;
+
+  top: -6px;
+  right: -7px;
+
+  width: 8px;
+  height: 8px;
+
+  color: #C98A14;
+
+  opacity: 0;
+
+  transform-origin: 50% 50%;
+}
+
+
+/* ─────────────────────────────────────
+   Animations
+───────────────────────────────────── */
+
+@keyframes ai-spark-spin {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  42% {
+    transform: rotate(240deg) scale(1.22);
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+
+@keyframes ai-spark-flash {
+  0%,
+  42% {
+    color: var(--color-blue);
+    filter: none;
+  }
+
+  58% {
+    color: #C98A14;
+    filter: drop-shadow(
+      0 0 5px rgba(201, 138, 20, 0.55)
+    );
+  }
+
+  100% {
+    color: var(--color-blue);
+    filter: none;
+  }
+}
+
+
+@keyframes ai-mini-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.2) rotate(-40deg);
+  }
+
+  45% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.35) rotate(30deg);
+  }
+}
+
+
+@keyframes ai-invite-tilt {
+  0% {
+    transform: rotate(0deg) translateY(0);
+  }
+
+  14% {
+    transform: rotate(-1.5deg) translateY(-2px);
+  }
+
+  38% {
+    transform: rotate(1.4deg) translateY(0);
+  }
+
+  60% {
+    transform: rotate(-0.9deg) translateY(-1px);
+  }
+
+  80% {
+    transform: rotate(0.4deg) translateY(0);
+  }
+
+  100% {
+    transform: rotate(0deg) translateY(0);
+  }
+}
+
+
+/* Hover sparkle */
+
+.ai-design-workflow:hover .ai-spark-main {
+  animation:
+    ai-spark-spin 700ms
+    cubic-bezier(.18, .85, .28, 1)
+    both;
+}
+
+
+/* Automatic invite animation */
+
+.ai-design-workflow.is-inviting .ai-spark-main {
+  animation:
+    ai-spark-spin 900ms cubic-bezier(.18, .85, .28, 1) both,
+    ai-spark-flash 900ms linear both;
+}
+
+.ai-design-workflow.is-inviting .ai-spark-mini {
+  animation:
+    ai-mini-pop 640ms ease-out 380ms both;
+}
+
+.ai-design-workflow.is-inviting {
+  animation:
+    ai-invite-tilt 950ms cubic-bezier(.34, .12, .2, .98) 760ms both;
+}
+
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-design-workflow:hover .ai-spark-main {
+    animation: none !important;
+  }
 }
 
 /* Monogram — portrait avatar, greyscale until hover (Figma 250:1089 / 250:1088) */

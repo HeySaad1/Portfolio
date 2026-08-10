@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useState, useEffect, useRef } from 'react';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 import avatar from '../assets/avatar-color.png';
 import chevronRight from '../assets/chevron-right.svg';
 import CityClock from './CityClock';
@@ -29,10 +29,38 @@ function Breadcrumb({ label, suffix }) {
 export default function Header({ breadcrumb, clock }) {
   const [msgIndex, setMsgIndex] = useState(0);
   const navigate = useNavigate();
+  const location = useLocation();
+  const isAIWorkflowPage = location.pathname === '/ai-design-workflow';
+  const aiButtonRef = useRef(null);
 
   function cycleMessage() {
     setMsgIndex(i => (i + 1) % MONOGRAM_MESSAGES.length);
   }
+
+  useEffect(() => {
+    const button = aiButtonRef.current;
+    if (!button) return;
+
+    const invite = () => {
+      button.classList.remove('is-inviting');
+
+      // Restart the CSS animation
+      void button.offsetWidth;
+
+      button.classList.add('is-inviting');
+    };
+
+    // First animation after 1.4 seconds
+    const firstInvite = setTimeout(invite, 1400);
+
+    // Repeat every 9 seconds
+    const interval = setInterval(invite, 9000);
+
+    return () => {
+      clearTimeout(firstInvite);
+      clearInterval(interval);
+    };
+  }, []);
 
   return (
     <header style={{
@@ -71,6 +99,39 @@ export default function Header({ breadcrumb, clock }) {
           </>
         )}
       </div>
+
+      {!isAIWorkflowPage && (
+
+      <button
+        ref={aiButtonRef}
+        onClick={() => navigate('/ai-design-workflow')}
+        className="font-typewriter ai-design-workflow flash-on tilt-on"
+        type="button"
+      >
+        <span className="ai-spark">
+          <svg
+            className="ai-spark-main"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path d="M12 1.6c.6 5.2 5.2 9.8 10.4 10.4C17.2 12.6 12.6 17.2 12 22.4 11.4 17.2 6.8 12.6 1.6 12 6.8 11.4 11.4 6.8 12 1.6Z" />
+          </svg>
+
+          <svg
+            className="ai-spark-mini"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path d="M12 1.6c.6 5.2 5.2 9.8 10.4 10.4C17.2 12.6 12.6 17.2 12 22.4 11.4 17.2 6.8 12.6 1.6 12 6.8 11.4 11.4 6.8 12 1.6Z" />
+          </svg>
+        </span>
+
+        <span>AI x Design</span>
+      </button>
+
+      )}
 
       {/*
       <button

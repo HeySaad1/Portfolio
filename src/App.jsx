@@ -11,6 +11,7 @@ import ZonePillarPage from './pages/ZonePillarPage';
 import UpvotePage from './pages/UpvotePage';
 import ShakeShackPage from './pages/ShakeShackPage';
 import KruzeePage from './pages/KruzeePage';
+import AIDesignWorkflowPage from './pages/AIDesignWorkflowPage';
 
 /* AboutPage and ContactPage were written against an onNavigate(pageKey) callback.
    Rather than rewrite them, map the old keys onto routes. */
@@ -104,6 +105,14 @@ export default function App() {
           element={
             <Shell breadcrumb={{ label: 'Kruzee', suffix: '(2025)' }}>
               <KruzeePage />
+            </Shell>
+          }
+        />
+        <Route
+          path="/ai-design-workflow"
+          element={
+            <Shell breadcrumb={{ label: 'AI Design Workflow'}}>
+              <AIDesignWorkflowPage />
             </Shell>
           }
         />
