@@ -111,7 +111,7 @@ export default function App() {
         <Route
           path="/ai-design-workflow"
           element={
-            <Shell breadcrumb={{ label: 'AI Design Workflow'}}>
+            <Shell breadcrumb={{ label: 'AI Design Workflow' }}>
               <AIDesignWorkflowPage />
             </Shell>
           }
