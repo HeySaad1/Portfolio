@@ -11,6 +11,7 @@ import UpvotePage from './pages/UpvotePage';
 import ShakeShackPage from './pages/ShakeShackPage';
 import KruzeePage from './pages/KruzeePage';
 import AIDesignWorkflowPage from './pages/AIDesignWorkflowPage';
+import Header from './components/Header';
 
 /* AboutPage and ContactPage were written against an onNavigate(pageKey) callback.
    Rather than rewrite them, map the old keys onto routes. */
