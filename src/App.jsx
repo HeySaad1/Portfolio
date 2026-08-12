@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
-import Header from './components/Header';
+import { BrowserRouter, Routes, Route, useNavigate, useLocation, Navigate } from 'react-router-dom';
 import EntryLoader from './components/EntryLoader';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
@@ -107,6 +106,10 @@ export default function App() {
               <KruzeePage />
             </Shell>
           }
+        />
+        <Route
+          path="/ai"
+          element={<Navigate to="/ai-design-workflow" replace />}
         />
         <Route
           path="/ai-design-workflow"
