@@ -23,6 +23,8 @@ import flagUs from '../assets/flags/us.svg';
 import iconBehance from '../assets/social/behance.svg';
 import iconDribbble from '../assets/social/dribbble.svg';
 import iconLinkedin from '../assets/social/linkedin.svg';
+import iconToptal from '../assets/social/toptal-footer.svg';
+import iconUpwork from '../assets/social/upwork-footer.svg';
 import iconChai from '../assets/social/chai.svg';
 
 const FLAGS = {
@@ -187,10 +189,17 @@ function Hero() {
             Designing products that feel human. Trusted by startups and enterprise teams worldwide.
           </p>
           
-          <div className="platform-pill" style={{
-            marginTop: 'clamp(28px, 3.5vw, 40px)',
-            marginLeft: HERO_INDENT,
-          }}>
+          
+          <div
+            className="platform-pill"
+            style={{
+              marginTop: 'clamp(28px, 3.5vw, 40px)',
+              marginLeft: HERO_INDENT,
+              visibility: 'hidden',
+              pointerEvents: 'none',
+            }}
+            aria-hidden="true">
+
             <PlatformLink
               href="https://www.toptal.com/designers/resume/saad-malik1?preview"
               label="Visit Toptal"
@@ -208,7 +217,7 @@ function Hero() {
               iconHeight={32}
               boxSize={32}
             />
-          </div>
+          </div> 
         </div>
 
         {/* Trusted-by carousel + isometric artifact */}
@@ -429,14 +438,37 @@ function CaseStudies() {
   );
 }
 
+
 /* ────────────────────────────────────────────────────────────────────────────
    Footer
    ──────────────────────────────────────────────────────────────────────────── */
-const SOCIALS = [
-  { label: 'Behance', href: 'https://www.behance.net/meetsaadmalik', icon: iconBehance },
-  { label: 'Dribbble', href: 'https://dribbble.com/meet-saad-malik/', icon: iconDribbble },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/meetsaadmalik/', icon: iconLinkedin },
-];
+  const SOCIALS = [
+    {
+      label: 'LinkedIn',
+      href: 'https://www.linkedin.com/in/meetsaadmalik/',
+      icon: iconLinkedin,
+    },
+    {
+      label: 'Toptal',
+      href: 'https://www.toptal.com/designers/resume/saad-malik1?preview',
+      icon: iconToptal,
+    },
+    {
+      label: 'Upwork',
+      href: 'https://www.upwork.com/freelancers/meetsaadmalik',
+      icon: iconUpwork,
+    },
+    {
+      label: 'Dribbble',
+      href: 'https://dribbble.com/meet-saad-malik/',
+      icon: iconDribbble,
+    },
+    {
+      label: 'Behance',
+      href: 'https://www.behance.net/meetsaadmalik',
+      icon: iconBehance,
+    },
+  ];
 
 const POLICIES = [
   { label: 'Copyright Policy', href: '#' },
@@ -457,28 +489,31 @@ function Footer() {
         <div className="footer-row">
           <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
             <span className="font-typewriter footer-monogram">©26</span>
-            <span style={{
-              fontFamily: "'Cormorant Garamond', serif",
-              fontStyle: 'italic',
-              fontWeight: 500,
-              fontSize: 'clamp(28px, 3vw, 36px)',
-              lineHeight: 1,
-            }}>
+
+            <span
+              style={{
+                fontFamily: "'Cormorant Garamond', serif",
+                fontStyle: 'italic',
+                fontWeight: 500,
+                fontSize: 'clamp(28px, 3vw, 36px)',
+                lineHeight: 1,
+              }}
+            >
               Saad Malik
             </span>
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            {SOCIALS.map(({ label, href, icon }) => (
+            {SOCIALS.map(({ label, href, icon, className = '' }) => (
               <a
                 key={label}
                 href={href}
                 target="_blank"
                 rel="noreferrer"
-                className="footer-social"
+                className={`footer-social ${className}`}
                 aria-label={label}
               >
-                <img src={icon} alt="" aria-hidden="true" width={40} height={40} />
+                <img src={icon} alt="" aria-hidden="true" />
               </a>
             ))}
           </div>
@@ -524,7 +559,9 @@ export default function HomePage() {
     <main style={{ flex: 1 }}>
       <Hero />
       <CaseStudies />
+      {/* <PlatformCTA /> */}
       <Footer />
     </main>
   );
 }
+

@@ -2747,3 +2747,213 @@ textarea {
 
 html.entry-lock, body.entry-lock { overflow: hidden; }
 body.entry-lock { cursor: none; }
+
+/* ─────────────────────────────────────
+   Platform CTA
+───────────────────────────────────── */
+
+.platform-cta {
+  width: min(1184px, calc(100% - 2 * clamp(24px, 8.9vw, 128px)));
+  margin: 0 auto 64px;
+
+  background: #efe8da;
+  border: 1px solid rgba(31, 31, 31, 0.16);
+  border-radius: 4px;
+}
+
+.platform-cta-inner {
+  min-height: 148px;
+  padding: 40px 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.platform-cta h2 {
+  margin: 0;
+
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.01em;
+
+  color: var(--color-ink);
+}
+
+
+/* ─────────────────────────────────────
+   Buttons
+───────────────────────────────────── */
+
+.platform-cta-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+
+/* Outer button frame */
+
+.platform-cta-button {
+  width: 217px;
+  height: 66px;
+  padding: 4px;
+
+  display: block;
+
+  background: #fffdf8;
+  border: 1px solid #dfe3e9;
+  border-radius: 6px;
+
+  color: var(--color-ink);
+  text-decoration: none;
+  box-sizing: border-box;
+
+  transform: none;
+  box-shadow: none;
+}
+
+
+/* Inner hover area */
+
+.platform-cta-button-inner {
+  width: 100%;
+  height: 100%;
+  padding: 0 16px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  background: transparent;
+  border-radius: 4px;
+  box-sizing: border-box;
+
+  transition: background-color 200ms ease;
+}
+
+.platform-cta-button-inner span {
+  white-space: nowrap;
+}
+
+
+/* Hover only happens INSIDE the frame */
+
+.platform-cta-button:hover {
+  background: #fffdf8;
+  transform: none;
+  box-shadow: none;
+}
+
+.platform-cta-button:hover .platform-cta-button-inner {
+  background: rgba(31, 31, 31, 0.05);
+}
+
+.platform-cta-button:active {
+  transform: none;
+}
+
+
+/* ─────────────────────────────────────
+   Logos
+───────────────────────────────────── */
+
+.platform-cta-toptal {
+  width: 28px;
+  height: 28px;
+
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.platform-cta-upwork {
+  width: 36px;
+  height: 28px;
+
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+
+/* ─────────────────────────────────────
+   Arrow
+───────────────────────────────────── */
+
+.platform-cta-arrow {
+  width: 16px;
+  height: 16px;
+
+  margin-left: auto;
+  flex-shrink: 0;
+
+  opacity: 0.8;
+
+  transition: opacity 200ms ease;
+}
+
+.platform-cta-button:hover .platform-cta-arrow {
+  opacity: 0.5;
+  transform: none;
+}
+
+
+/* ─────────────────────────────────────
+   Tablet
+───────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .platform-cta-inner {
+    padding: 32px;
+  }
+
+  .platform-cta h2 {
+    font-size: 26px;
+  }
+
+  .platform-cta-button {
+    width: 190px;
+  }
+}
+
+
+/* ─────────────────────────────────────
+   Mobile
+───────────────────────────────────── */
+
+@media (max-width: 700px) {
+  .platform-cta {
+    margin-bottom: 40px;
+  }
+
+  .platform-cta-inner {
+    min-height: auto;
+    padding: 32px 24px;
+
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+  }
+
+  .platform-cta-actions {
+    width: 100%;
+  }
+
+  .platform-cta-button {
+    flex: 1;
+    width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .platform-cta-actions {
+    flex-direction: column;
+  }
+
+  .platform-cta-button {
+    width: 100%;
+    flex: none;
+  }
+}
