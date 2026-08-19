@@ -887,7 +887,7 @@ function Hero() {
       <div className="cs-hero-brand">
       <span
           className="cs-logomark"
-          style={{ background: '#3B3431' }}
+          style={{ background: '#002856' }}
         >
           <img
             src={gartnerLogomark}
